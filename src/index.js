@@ -1,14 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
+import {profiles} from './profiles';
+import Profile from './profile';
+
+const ProfileList = () => {
+  return (
+    <>
+    <h1>ID Cards</h1>
+      <section className='ProfileList'>
+          { profiles.map((profile,index)=>{
+            return <Profile {...profile} key = {profile.id} number = {index}/>
+          })}
+      </section>
+    </>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <ProfileList />
 );
 
 // If you want to start measuring performance in your app, pass a function
